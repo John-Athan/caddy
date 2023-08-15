@@ -1,0 +1,10 @@
+{
+	debug
+}
+localhost:2015 {
+	encode zstd gzip
+	file_server browse
+}
+localhost:2016 {
+	respond "You're using {http.request.proto}"
+}

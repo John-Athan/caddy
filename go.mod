@@ -43,6 +43,8 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 )
 
+replace github.com/quic-go/quic-go => ../quic-go
+
 require (
 	github.com/Microsoft/go-winio v0.6.0 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr/v4 v4.0.0-20230305170008-8188dc5388df // indirect

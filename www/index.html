@@ -12,10 +12,11 @@
     <title>I am the first party</title>
 </head>
 <body>
-Main Page!
-Go to <a href="https://one.schinkenschorsch.de/sub-page.html">link text</a>
-As the first party, I know you visited the following pages: {{.Cookie "useridpages"}}
+Main Page!<br>
+Go to <a href="https://one.schinkenschorsch.de/sub-page.html">this page</a><br>
+I am host {{.Host}} on and this page is hosted on this url: {{placeholder "http.request.uri.path"}}<br>
+As the first party, I know you visited the following pages: {{.Cookie "useridpages"}}<br>
 <iframe width="560" height="315" src="https://three.schinkenschorsch.de/embed.html"
-        title="YouTube video player"></iframe>
+        title="Embed"></iframe>
 </body>
 </html>

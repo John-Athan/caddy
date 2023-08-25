@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+          href="https://localhost:2016/tracker.css?{{now}}">
+    <style>
+        body {
+            font-family: 'Tangerine', serif;
+            font-size: 48px;
+        }
+    </style>
+    <title>I am the first party</title>
+</head>
+<body>
+Page loaded at: {{now | date "Mon Jan 2 15:04:05 MST 2006"}}.
+{{.Cookie "useridpages"}}
+</body>
+</html>

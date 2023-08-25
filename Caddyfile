@@ -1,11 +1,22 @@
 #{
 #	debug
 #}
+
+# First party that integrates the third party
 localhost:2015 {
     templates
 	encode zstd gzip
 	file_server browse
 }
+
+# Tracker
 localhost:2016 {
-	respond "You're using {http.request.proto}"
+    templates
+	encode zstd gzip
+	file_server browse
+}
+
+# Testpage
+localhost:2017 {
+	respond "You're using {http.request.proto}."
 }

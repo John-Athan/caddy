@@ -1,22 +1,23 @@
-#{
-#	debug
-#}
-
 # First party that integrates the third party
-localhost:2015 {
+one.schinkenschorsch.de {
+    root * ./www
     templates
 	encode zstd gzip
-	file_server browse
+	file_server
 }
 
 # Tracker
-localhost:2016 {
+two.schinkenschorsch.de {
+    root * ./www
     templates
 	encode zstd gzip
-	file_server browse
+	file_server
 }
 
-# Testpage
-localhost:2017 {
-	respond "You're using {http.request.proto}."
+# Embed
+three.schinkenschorsch.de {
+    root * ./www
+    templates
+	encode zstd gzip
+	file_server
 }

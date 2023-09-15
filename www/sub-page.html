@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+          href="https://two.schinkenschorsch.de/tracker.css?{{now}}">
+    <style>
+        body {
+            font-family: 'Tangerine', serif;
+            font-size: 32px;
+        }
+    </style>
+    <title>I am the first party</title>
+</head>
+<body>
+Sub Page!<br>
+Go back to <a href="https://one.schinkenschorsch.de/index.html">this page</a><br>
+I am host {{.Host}} on and this page is hosted on this url: {{placeholder "http.request.uri.path"}}<br>
+As the first party, I know you visited the following pages: {{.Cookie "useridpages"}}<br>
+<iframe width="560" height="315" src="https://three.schinkenschorsch.de/embed.html"
+        title="YouTube video player"></iframe>
+</body>
+</html>

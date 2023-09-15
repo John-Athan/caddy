@@ -1,0 +1,23 @@
+# First party that integrates the third party
+one.schinkenschorsch.de {
+    root * ./www
+    templates
+	encode zstd gzip
+	file_server
+}
+
+# Tracker
+two.schinkenschorsch.de {
+    root * ./www
+    templates
+	encode zstd gzip
+	file_server
+}
+
+# Embed
+three.schinkenschorsch.de {
+    root * ./www
+    templates
+	encode zstd gzip
+	file_server
+}

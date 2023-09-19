@@ -39,6 +39,8 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 )
 
+replace github.com/quic-go/quic-go => ../quic-go
+
 require (
 	github.com/Microsoft/go-winio v0.6.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

@@ -7,7 +7,7 @@ one.schinkenschorsch.de {
 }
 
 # Tracker
-two.schinkenschorsch.de {
+two.schinkenschorsch.de:2015 {
     root * ./www
     templates
 	encode zstd gzip
@@ -15,7 +15,7 @@ two.schinkenschorsch.de {
 }
 
 # Embed
-three.schinkenschorsch.de {
+three.schinkenschorsch.de:2016 {
     root * ./www
     templates
 	encode zstd gzip

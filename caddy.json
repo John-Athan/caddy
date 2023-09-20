@@ -1,0 +1,99 @@
+{
+  "logging": {
+    "logs": {
+      "default": {
+        "level": "DEBUG"
+      }
+    }
+  },
+  "apps": {
+    "http": {
+      "servers": {
+        "srv0": {
+          "protocols": [
+            "h3"
+          ],
+          "listen": [
+            ":2015"
+          ],
+          "routes": [
+            {
+              "match": [
+                {
+                  "host": [
+                    "localhost"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "encodings": {
+                            "gzip": {},
+                            "zstd": {}
+                          },
+                          "handler": "encode",
+                          "prefer": [
+                            "zstd",
+                            "gzip"
+                          ]
+                        },
+                        {
+                          "handler": "templates"
+                        },
+                        {
+                          "browse": {},
+                          "handler": "file_server",
+                          "hide": [
+                            "./Caddyfile"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            }
+          ]
+        },
+        "srv1": {
+          "listen": [
+            ":2016"
+          ],
+          "routes": [
+            {
+              "match": [
+                {
+                  "host": [
+                    "localhost"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "body": "You're using {http.request.proto}",
+                          "handler": "static_response"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

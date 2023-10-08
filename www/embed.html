@@ -4,9 +4,9 @@
     <title>I am an Embed</title>
 </head>
 <body>
-I am an Embed that is not part of this page!<br>
+I am an Embed that is not run by the same entity as that of the outer page!<br>
 I am host {{.Host}} on and this page is hosted on this url: {{placeholder "http.request.uri.path"}}<br>
-As the <b>second</b> party, I know you visited the following pages using passive QUIC tracking only: {{.Cookie "quicTokenTracking"}}<br>
+As the <b>third</b> party, I know you visited the following pages using passive QUIC tracking only: {{.Cookie "quicTokenTracking"}}<br>
 HTTP Cookie tracking would result in the following pages: {{.Cookie "httpCookieTracking"}}<br>
 </body>
 </html>

@@ -13,7 +13,7 @@
 </head>
 <body>
 Main Page!<br>
-Go to <a href="https://one.schinkenschorsch.de/sub-page.html">this page</a><br>
+Go to <a href="https://{{.Host}}/sub-page.html">this page</a><br>
 I am host {{.Host}} on and this page is hosted on this url: {{placeholder "http.request.uri.path"}}<br>
 As the <b>first</b> party, I know you visited the following pages using passive QUIC tracking only: {{.Cookie "quicTokenTracking"}}<br>
 HTTP Cookie tracking would result in the following pages: {{.Cookie "httpCookieTracking"}}<br>

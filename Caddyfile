@@ -15,7 +15,7 @@ two.schinkenschorsch.de {
 }
 
 # Embed
-three.schinkenschorsch.de {
+quictrack.de {
     root * ./www
     templates
 	encode zstd gzip

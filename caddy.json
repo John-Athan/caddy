@@ -10,9 +10,6 @@
     "http": {
       "servers": {
         "srv0": {
-          "protocols": [
-            "h3"
-          ],
           "listen": [
             ":2015"
           ],

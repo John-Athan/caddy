@@ -1,4 +1,4 @@
-# First party that integrates the third party
+# First party
 one.schinkenschorsch.de {
     root * ./www
     templates
@@ -6,8 +6,8 @@ one.schinkenschorsch.de {
 	file_server
 }
 
-# Tracker
-two.schinkenschorsch.de {
+# Different First Party
+quictrack.de {
     root * ./www
     templates
 	encode zstd gzip

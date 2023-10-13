@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet"
+          href="https://quictrack.de/tracker.css?{{now}}">
+    <style>
+        body {
+            font-family: 'Tangerine', serif;
+            font-size: 32px;
+        }
+    </style>
     <title>I am the first party</title>
 </head>
 <body>
@@ -9,7 +17,4 @@ Go back to <a href="https://{{.Host}}/index.html">this page</a><br>
 I am host {{.Host}} on and this page is hosted on this url: {{placeholder "http.request.uri.path"}}<br>
 As the <b>first</b> party, I know you visited the following pages using passive QUIC tracking only: {{.Cookie "quicTokenTracking"}}<br>
 HTTP Cookie tracking would result in the following pages: {{.Cookie "httpCookieTracking"}}<br>
-<iframe width="560" height="315" src="https://quictrack.de/embed.html"
-        title="Embed"></iframe>
-</body>
 </html>

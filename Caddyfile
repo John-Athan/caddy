@@ -7,7 +7,7 @@ one.schinkenschorsch.de {
 }
 
 # Different First Party
-quictrack.de {
+quictrack.online {
     root * ./www
     templates
 	encode zstd gzip

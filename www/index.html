@@ -14,33 +14,33 @@
 <body>
 Main Page!<br>
 <script>
-    let baseDelay = 1000; // Startverzögerung in Millisekunden
-    let exponent = 2; // Exponent für die exponentielle Verzögerung
+    let baseDelay = 1 * 60 * 1000; // Start delay in milliseconds (1 minute)
+    let increment = 1 * 60 * 1000; // Incremental delay in milliseconds (1 minute)
 
     function visitPage() {
-        window.location.reload(); // Seite neu laden
+        window.location.reload(); // Reload the page
     }
 
-    function exponentialDelayVisit() {
+    function linearDelayVisit() {
         setTimeout(() => {
             visitPage();
         }, baseDelay);
     }
 
-    // Beim Laden der Seite:
-    // Prüfen, ob ein vorheriger Wert für baseDelay im Local Storage existiert
+    // On page load:
+    // Check if a previous value for baseDelay exists in Local Storage
     if(localStorage.getItem("baseDelay")) {
-        // Wert aus dem Local Storage abrufen und für baseDelay setzen
+        // Retrieve the value from Local Storage and set it for baseDelay
         baseDelay = parseInt(localStorage.getItem("baseDelay"), 10);
     }
 
-    // Vor dem Neuladen der Seite den nächsten Wert für baseDelay berechnen und im Local Storage speichern
+    // Before reloading the page, calculate the next value for baseDelay and store it in Local Storage
     window.addEventListener("beforeunload", () => {
-        localStorage.setItem("baseDelay", baseDelay * exponent);
+        localStorage.setItem("baseDelay", baseDelay + increment);
     });
 
-    // Skript starten
-    exponentialDelayVisit();
+    // Start the script
+    linearDelayVisit();
 </script>
 Go to <a href="https://{{.Host}}/sub-page.html">this page</a><br>
 I am host {{.Host}} on and this page is hosted on this url: {{placeholder "http.request.uri.path"}}<br>

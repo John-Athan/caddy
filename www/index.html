@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet"
-          href="https://quictrack.de/tracker.css?{{now}}">
+    <link rel="stylesheet" href="https://quictrack.de/tracker.css?{{now}}">
     <style>
         body {
-            font-family: 'Tangerine', serif;
-            font-size: 32px;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 80%;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for content */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .title-image {
+            width: 100%;
+            height: auto;
+            display: block; /* Center the image */
+            margin: 0 auto 20px; /* Space below the image */
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .important {
+            font-weight: bold;
         }
     </style>
     <title>I am the first party</title>
 </head>
 <body>
-Main Page!<br>
-<script>
+<div class="container">
+    <h1>Main Page!</h1>
+    <script>
     let baseDelay = 1000; // Startverzögerung in Millisekunden
     let exponent = 2; // Exponent für die exponentielle Verzögerung
 
@@ -42,9 +77,10 @@ Main Page!<br>
     // Skript starten
     exponentialDelayVisit();
 </script>
-Go to <a href="https://{{.Host}}/sub-page.html">this page</a><br>
-I am host {{.Host}} on and this page is hosted on this url: {{placeholder "http.request.uri.path"}}<br>
-As the <b>first</b> party, I know you visited the following pages using passive QUIC tracking only: {{.Cookie "quicTokenTracking"}}<br>
-HTTP Cookie tracking would result in the following pages: {{.Cookie "httpCookieTracking"}}<br>
+    <p>Go to <a href="https://{{.Host}}/sub-page.html">this page</a></p>
+    <p>I am host {{.Host}} and this page is hosted on this url: {{placeholder "http.request.uri.path"}}</p>
+    <p>As the <span class="important">first</span> party, I know you visited the following pages using passive QUIC tracking only: {{.Cookie "quicTokenTracking"}}</p>
+    <p>HTTP Cookie tracking would result in the following pages: {{.Cookie "httpCookieTracking"}}</p>
+</div>
 </body>
 </html>

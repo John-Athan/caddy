@@ -24,7 +24,10 @@ function parseCookie(cookieString) {
 
 function createTable(quicData, httpData) {
     let output = `<table><tr><th>Timestamp</th><th>Visited URL</th><th>QUIC Token Tracking</th><th>HTTP Cookie Tracking</th></tr>`;
-    const allTimestamps = new Set([...Object.keys(quicData), ...Object.keys(httpData)]);
+    let allTimestamps = [...new Set([...Object.keys(quicData), ...Object.keys(httpData)])];
+
+    // Sorting timestamps
+    allTimestamps.sort((a, b) => parseInt(a) - parseInt(b));
 
     allTimestamps.forEach(timestamp => {
         const quicUrl = quicData[timestamp] || '';
@@ -34,11 +37,11 @@ function createTable(quicData, httpData) {
         const url = quicUrl || httpUrl;
 
         output += `<tr>
-                        <td>${new Date(parseInt(timestamp) * 1000).toLocaleString()}</td>
-                        <td><a href="${url}">${url}</a></td>
-                        <td>${quicCheck}</td>
-                        <td>${httpCheck}</td>
-                       </tr>`;
+                    <td>${new Date(parseInt(timestamp) * 1000).toLocaleString()}</td>
+                    <td><a href="${url}">${url}</a></td>
+                    <td>${quicCheck}</td>
+                    <td>${httpCheck}</td>
+                   </tr>`;
     });
 
     output += '</table>';

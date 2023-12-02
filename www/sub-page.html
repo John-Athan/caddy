@@ -48,39 +48,10 @@
 <body>
 <div class="container">
     <h1>Sub Page!</h1>
-    <script>
-        let baseDelay = 1000; // Startverzögerung in Millisekunden
-        let exponent = 2; // Exponent für die exponentielle Verzögerung
-
-        function visitPage() {
-            window.location.reload(); // Seite neu laden
-        }
-
-        function exponentialDelayVisit() {
-            setTimeout(() => {
-                visitPage();
-            }, baseDelay);
-        }
-
-        // Beim Laden der Seite:
-        // Prüfen, ob ein vorheriger Wert für baseDelay im Local Storage existiert
-        if(localStorage.getItem("baseDelay")) {
-            // Wert aus dem Local Storage abrufen und für baseDelay setzen
-            baseDelay = parseInt(localStorage.getItem("baseDelay"), 10);
-        }
-
-        // Vor dem Neuladen der Seite den nächsten Wert für baseDelay berechnen und im Local Storage speichern
-        window.addEventListener("beforeunload", () => {
-            localStorage.setItem("baseDelay", baseDelay * exponent);
-        });
-
-        // Skript starten
-        exponentialDelayVisit();
-    </script>
+    <script src="table.es6"></script>
     <p>Go back to <a href="https://{{.Host}}/index.html">this page</a></p>
     <p>I am host {{.Host}} and this page is hosted on this url: {{placeholder "http.request.uri.path"}}</p>
-    <p>As the <span class="important">first</span> party, I know you visited the following pages using passive QUIC tracking only: {{.Cookie "quicTokenTracking"}}</p>
-    <p>HTTP Cookie tracking would result in the following pages: {{.Cookie "httpCookieTracking"}}</p>
+    <div id="trackingInfo"></div>
 </div>
 </body>
 </html>
